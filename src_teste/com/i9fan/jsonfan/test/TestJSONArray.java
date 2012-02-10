@@ -1,12 +1,13 @@
 package com.i9fan.jsonfan.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import com.i9fan.jsonfan.interfaces.JSONArray;
-import com.i9fan.jsonfan.interfaces.JSONValue;
 import com.i9fan.jsonfan.jseImpl.JSONArrayImpl;
 import com.i9fan.jsonfan.jseImpl.JSONNumberImpl;
 

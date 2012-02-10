@@ -6,7 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ TestJSONParser.class, TestJSONValue.class , TestJSONObjectImpl.class, TestJSONNumber.class, 
-	TestJSONBoolean.class, TestJSONNull.class, TestJSONString.class})
+	TestJSONBoolean.class, TestJSONNull.class, TestJSONString.class, TestJSONArray.class})
 public class AllTests {
 
 }
