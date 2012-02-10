@@ -7,14 +7,19 @@ import java.util.Set;
 
 import com.i9fan.jsonfan.interfaces.JSONArray;
 import com.i9fan.jsonfan.interfaces.JSONBoolean;
+import com.i9fan.jsonfan.interfaces.JSONNull;
 import com.i9fan.jsonfan.interfaces.JSONNumber;
 import com.i9fan.jsonfan.interfaces.JSONObject;
 import com.i9fan.jsonfan.interfaces.JSONString;
 import com.i9fan.jsonfan.interfaces.JSONValue;
 
-@SuppressWarnings("rawtypes")
-public class JSONObjectImpl extends HashMap implements JSONValue, JSONObject, Map {
+public class JSONObjectImpl extends HashMap<String,JSONValue> implements JSONValue, JSONObject, Map<String,JSONValue> {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	public JSONObject isObject() {
 		return this;
@@ -49,6 +54,11 @@ public class JSONObjectImpl extends HashMap implements JSONValue, JSONObject, Ma
 	public JSONValue get(String key) {
 		Object obj = get((Object)key);
 		if (obj instanceof JSONValue) return (JSONValue) obj;
+		return null;
+	}
+
+	@Override
+	public JSONNull isNull() {
 		return null;
 	}
 

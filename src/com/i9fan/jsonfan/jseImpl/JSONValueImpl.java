@@ -2,6 +2,7 @@ package com.i9fan.jsonfan.jseImpl;
 
 import com.i9fan.jsonfan.interfaces.JSONArray;
 import com.i9fan.jsonfan.interfaces.JSONBoolean;
+import com.i9fan.jsonfan.interfaces.JSONNull;
 import com.i9fan.jsonfan.interfaces.JSONNumber;
 import com.i9fan.jsonfan.interfaces.JSONObject;
 import com.i9fan.jsonfan.interfaces.JSONString;
@@ -31,6 +32,11 @@ public class JSONValueImpl implements JSONValue {
 
 	@Override
 	public JSONObject isObject() {
+		return null;
+	}
+
+	@Override
+	public JSONNull isNull() {
 		return null;
 	}
 

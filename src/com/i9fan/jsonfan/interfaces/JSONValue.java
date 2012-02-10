@@ -12,5 +12,5 @@ public interface JSONValue {
 
 	JSONObject isObject();
 
-	
+	JSONNull isNull();
 }
