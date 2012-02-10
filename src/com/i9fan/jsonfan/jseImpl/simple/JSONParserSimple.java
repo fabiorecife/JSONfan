@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-
+import com.i9fan.jsonfan.interfaces.JSONValue;
 import com.i9fan.jsonfan.jseImpl.JSONArrayImpl;
 import com.i9fan.jsonfan.jseImpl.JSONObjectImpl;
 
@@ -185,7 +185,7 @@ public class JSONParserSimple {
 						statusStack.removeFirst();
 						String key=(String)valueStack.removeFirst();
 						Map parent=(Map)valueStack.getFirst();
-						parent.put(key,token.value);
+						parent.put(key,createObjectValue(containerFactory));
 						status=peekStatus(statusStack);
 						break;
 					case Yytoken.TYPE_LEFT_SQUARE:
@@ -219,7 +219,7 @@ public class JSONParserSimple {
 						break;
 					case Yytoken.TYPE_VALUE:
 						List val=(List)valueStack.getFirst();
-						val.add(token.value);
+						val.add(createObjectValue(containerFactory));
 						break;
 					case Yytoken.TYPE_RIGHT_SQUARE:
 						if(valueStack.size()>1){
@@ -265,7 +265,14 @@ public class JSONParserSimple {
 		
 		throw new ParseException(getPosition(), ParseException.ERROR_UNEXPECTED_TOKEN, token);
 	}
+
+	private JSONValue createObjectValue(ContainerFactory containerFactory) {
+		
+		return containerFactory.createValue(token.value);
+	}
 	
+	
+
 	private void nextToken() throws ParseException, IOException{
 		token = lexer.yylex();
 		if(token == null)

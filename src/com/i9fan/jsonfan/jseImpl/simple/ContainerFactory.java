@@ -3,6 +3,8 @@ package com.i9fan.jsonfan.jseImpl.simple;
 import java.util.List;
 import java.util.Map;
 
+import com.i9fan.jsonfan.interfaces.JSONValue;
+
 /**
  * Container factory for creating containers for JSON object and JSON array.
  * 
@@ -14,10 +16,13 @@ public interface ContainerFactory {
 	/**
 	 * @return A Map instance to store JSON object, or null if you want to use org.json.simple.JSONObject.
 	 */
-	Map createObjectContainer();
+	Map<String,JSONValue> createObjectContainer();
 	
 	/**
 	 * @return A List instance to store JSON array, or null if you want to use org.json.simple.JSONArray. 
 	 */
-	List creatArrayContainer();
+	List<JSONValue> creatArrayContainer();
+	
+	
+	JSONValue createValue(Object value);
 }

@@ -34,6 +34,22 @@ public class JSONParserImpl implements JSONParser{
 				public List creatArrayContainer() {
 					return new JSONArrayImpl();
 				}
+
+				@Override
+				public JSONValue createValue(Object value) {
+					JSONValue result = null;
+					if (value instanceof String) {
+						result = new JSONStringImpl((String)value);
+					} else if (value instanceof Boolean) {
+						result = JSONBooleanImpl.getInstance(((Boolean) value).booleanValue());
+					}  else if (value instanceof Double){
+						result = new JSONNumberImpl((Double) value);
+					}  else if (value instanceof Long){
+						result = new JSONNumberImpl (((Long) value).doubleValue());
+						
+					}
+					return result;
+				}
 			});
 		} catch (ParseException e) {
 			e.printStackTrace();
