@@ -7,142 +7,55 @@ import java.util.List;
 import java.util.ListIterator;
 
 import com.i9fan.jsonfan.interfaces.JSONArray;
+import com.i9fan.jsonfan.interfaces.JSONBoolean;
+import com.i9fan.jsonfan.interfaces.JSONNull;
+import com.i9fan.jsonfan.interfaces.JSONNumber;
+import com.i9fan.jsonfan.interfaces.JSONObject;
+import com.i9fan.jsonfan.interfaces.JSONString;
+import com.i9fan.jsonfan.interfaces.JSONValue;
 
-@SuppressWarnings("rawtypes")
-public class JSONArrayImpl extends JSONValueImpl implements List, JSONArray {
 
-	List lista = new ArrayList();
-	
-	
+public class JSONArrayImpl extends ArrayList<JSONValue> implements List<JSONValue>, JSONArray {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	public JSONArray isArray() {
 		return this;
 	}
 
 	@Override
-	public int size() {
-		return lista.size();
+	public JSONBoolean isBoolean() { return null; }
+
+	@Override
+	public JSONString isString() { return null; }
+
+	@Override
+	public JSONNumber isNumber() { return null; }
+
+	@Override
+	public JSONObject isObject() { return null; }
+
+	@Override
+	public JSONNull isNull() { return null; }
+
+	@Override
+	public JSONValue set(int index, JSONValue jsonvalue) {
+		if (size() > index) {
+			return super.set (index, jsonvalue);
+		} else {
+			add(jsonvalue);
+		}
+		return jsonvalue;
 	}
 
 	@Override
-	public boolean isEmpty() {
-		return lista.isEmpty();
+	public JSONValue get(int index) {
+		return super.get(index);
 	}
-
-	@Override
-	public boolean contains(Object o) {
-		return lista.contains(o);
-	}
-
-	@Override
-	public Iterator iterator() {
-		return lista.iterator();
-	}
-
-	@Override
-	public Object[] toArray() {
-		return lista.toArray();
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public Object[] toArray(Object[] a) {
-		return lista.toArray(a);
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public boolean add(Object e) {
-		return lista.add(e);
-	}
-
-	@Override
-	public boolean remove(Object o) {
-		return lista.remove(o);
-	}
-
-	@SuppressWarnings({ "unchecked" })
-	@Override
-	public boolean containsAll( Collection c) {
-		return lista.containsAll(c);
-	}
-
-	@SuppressWarnings({ "unchecked" })
-	@Override
-	public boolean addAll( Collection c) {
-		return lista.addAll(c);
-	}
-
-	@SuppressWarnings({ "unchecked" })
-	@Override
-	public boolean addAll(int index, Collection c) {
-		return lista.addAll(index, c);
-	}
-
-	@SuppressWarnings({ "unchecked" })
-	@Override
-	public boolean removeAll(Collection c) {
-		return lista.removeAll(c);
-	}
-
-	@SuppressWarnings({ "unchecked" })
-	@Override
-	public boolean retainAll(Collection c) {
-		return lista.removeAll(c);
-	}
-
-	@Override
-	public void clear() {
-		lista.clear();
-	}
-
-	@Override
-	public Object get(int index) {
-		return lista.get(index);
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public Object set(int index, Object element) {
-		return lista.set(index, element);
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public void add(int index, Object element) {
-		lista.add(index, element);
-		
-	}
-
-	@Override
-	public Object remove(int index) {
-		return lista.remove(index);
-	}
-
-	@Override
-	public int indexOf(Object o) {
-		return lista.indexOf(o);
-	}
-
-	@Override
-	public int lastIndexOf(Object o) {
-		return lista.lastIndexOf(o);
-	}
-
-	@Override
-	public ListIterator listIterator() {
-		return lista.listIterator();
-	}
-
-	@Override
-	public ListIterator listIterator(int index) {
-		return lista.listIterator(index);
-	}
-
-	@Override
-	public List subList(int fromIndex, int toIndex) {
-		return lista.subList(fromIndex, toIndex);
-	}
-
-
+	
+	
 }

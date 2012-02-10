@@ -13,7 +13,7 @@ import com.i9fan.jsonfan.interfaces.JSONObject;
 import com.i9fan.jsonfan.interfaces.JSONString;
 import com.i9fan.jsonfan.interfaces.JSONValue;
 
-public class JSONObjectImpl extends HashMap<String,JSONValue> implements JSONValue, JSONObject, Map<String,JSONValue> {
+public class JSONObjectImpl extends HashMap<String,JSONValue> implements JSONObject, Map<String,JSONValue> {
 	
 	/**
 	 * 
