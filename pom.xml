@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>i9fan</groupId>
   <artifactId>JSONfan</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.9.0</version>
   <name>JSONfan</name>
   <description>JSONValue - JSE edition </description>
   
