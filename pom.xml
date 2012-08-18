@@ -7,6 +7,14 @@
   <description>JSONValue - JSE edition </description>
   
   
+
+
+<scm>
+    <connection>scm:git:git://github.com/fabiorecife/JSONfan.git</connection>
+    <developerConnection>scm:git:https://github.com/fabiorecife/JSONfan.git</developerConnection>
+    <url>https://github.com/fabiorecife/JSONfan</url>
+</scm>
+
   <dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -16,4 +24,19 @@
 		</dependency>
  </dependencies>		
   
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-scm-plugin</artifactId>
+            <version>1.7</version>
+            <configuration>
+              <connectionType>connection</connectionType>
+              <goals>package</goals>
+              <checkoutDirectory>${basedir}/JSONfan</checkoutDirectory>
+            </configuration>
+          </plugin>
+    </plugins>
+</build>
+
 </project>
